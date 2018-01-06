@@ -1,0 +1,42 @@
+{
+  "name": "last-commit-log",
+  "version": "1.0.0",
+  "description": "read git last commit log",
+  "main": "./src/index.js",
+  "scripts": {
+    "prune": "npm prune",
+    "lint": "eslint src test examples --fix",
+    "test": "npm run lint && nyc --reporter=lcov --reporter=text mocha"
+  },
+  "files": [
+    "src"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/zhangyuheng/last-commit-log"
+  },
+  "keywords": [
+    "git",
+    "commit",
+    "history",
+    "log"
+  ],
+  "author": "Yuheng Zhang",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/zhangyuheng/last-commit-log/issues"
+  },
+  "homepage": "https://github.com/zhangyuheng/last-commit-log",
+  "devDependencies": {
+    "eslint": "^4.14.0",
+    "eslint-config-standard": "^11.0.0-beta.0",
+    "eslint-plugin-import": "^2.8.0",
+    "eslint-plugin-node": "^5.2.1",
+    "eslint-plugin-promise": "^3.6.0",
+    "eslint-plugin-standard": "^3.0.1",
+    "mocha": "4",
+    "nyc": "11",
+    "rollup": "^0.53.3",
+    "sinon": "4"
+  }
+}
