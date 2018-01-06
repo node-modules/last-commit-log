@@ -1,11 +1,12 @@
-const LCL = require('../')
+const LCL = require('..')
+const lcl = new LCL()
 
 async function lcommit () {
   try {
-    const commit = await new LCL().getLastCommit()
+    const commit = await lcl.getLastCommit()
     console.log(commit)
   } catch (err) {
-    console.log(err)
+    console.error(err)
   }
 }
 

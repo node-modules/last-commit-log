@@ -27,6 +27,9 @@
   "bugs": {
     "url": "https://github.com/zhangyuheng/last-commit-log/issues"
   },
+  "engines": {
+    "node": ">= 8"
+  },
   "homepage": "https://github.com/zhangyuheng/last-commit-log",
   "devDependencies": {
     "eslint": "^4.14.0",
