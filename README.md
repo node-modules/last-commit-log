@@ -7,14 +7,15 @@
   <a href="https://www.npmjs.com/package/last-commit-log"><img src="https://img.shields.io/npm/l/last-commit-log.svg" alt="License"></a>
 </p>
 
-> fork from [git-last-commit](https://github.com/seymen/git-last-commit)
 
 Node.js module to read last git commit information including tags and branch - mostly to be used by continuous integration and build systems for build tagging purposes.
+
+> fork from [git-last-commit](https://github.com/seymen/git-last-commit)
 
 ## Usage
 
 ```javascript
-const LCL = require('../')
+const LCL = require('last-commit-log')
 
 async function lcommit () {
   try {
