@@ -30,4 +30,8 @@ jobs:
       # run tests!
       - run: npm test
 
+      - run:
+          name: report coverage
+          command: npm i codecov && npm run report-coverage
+
 

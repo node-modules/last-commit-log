@@ -4,3 +4,4 @@ coverage
 *.iml
 *.tgz
 .nyc_output
+coverage.lcov

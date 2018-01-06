@@ -6,7 +6,8 @@
   "scripts": {
     "prune": "npm prune",
     "lint": "eslint src test examples --fix",
-    "test": "npm run lint && nyc --reporter=lcov --reporter=text mocha"
+    "test": "npm run lint && nyc --reporter=lcov --reporter=text mocha",
+    "report-coverage": "nyc report --reporter=text-lcov > coverage.lcov && codecov"
   },
   "files": [
     "src"
