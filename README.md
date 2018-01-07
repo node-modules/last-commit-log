@@ -15,6 +15,8 @@ Node.js module to read last git commit information including tags and branch - m
 
 ## Usage
 
+#### Async function
+
 ```javascript
 const LCL = require('last-commit-log')
 const lcl = new LCL(dir) // dir is process.cwd() by default
@@ -29,6 +31,17 @@ async function lcommit () {
 }
 
 lcommit()
+```
+
+#### Promise
+
+```javascript
+const LCL = require('last-commit-log')
+const lcl = new LCL()
+
+lcl.getLastCommit()
+  .then(commit => console.log(commit))
+  .catch(e => console.error(e))
 ```
 
 commit is an object like this:
