@@ -1,8 +1,9 @@
 const fs = require('fs')
-const { join } = require('path')
-const assert = require('assert')
-const sinon = require('sinon')
 const util = require('util')
+const sinon = require('sinon')
+const assert = require('assert')
+const { join } = require('path')
+
 const LCL = require('..')
 
 const stdout = fs.readFileSync(join(__dirname, 'fixtures/stdout.txt'), 'utf8').replace(/\n$/, '')
@@ -16,7 +17,7 @@ describe('feature: return last commit info', function () {
   })
 
   afterEach(function () {
-    stub.restore()
+    stub && stub.restore()
   })
 
   it('should parse git commands fully', function () {
@@ -26,6 +27,8 @@ describe('feature: return last commit info', function () {
 
     return lcl.getLastCommit().then(commit => {
       assert.ok(commit)
+      assert(commit.gitRemote === 'git@github.com:zhangyuheng/last-commit-log.git')
+      assert(commit.gitUrl === 'http://github.com/zhangyuheng/last-commit-log')
       assert.equal(commit.shortHash, '42dc921')
       assert.equal(commit.hash, '42dc921d25a3e7e1607302d2acfdc3fd991c0c01')
       assert.equal(commit.subject, 'chore: add lock')
@@ -42,7 +45,12 @@ describe('feature: return last commit info', function () {
     })
   })
 
-  it('should handle error', function () {
+  it('should _fotmatGitHttpUrl correctly', function () {
+    assert(lcl._formatGitHttpUrl() === '')
+    assert(lcl._formatGitHttpUrl('https://github.com/zhangyuheng/last-commit-log.git') === 'https://github.com/zhangyuheng/last-commit-log')
+  })
+
+  it('should throw error', function () {
     stub = sinon.stub(util, 'promisify').callsFake(() => {
       const err = new Error()
       err.stderr = 'git command not found'
