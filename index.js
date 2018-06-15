@@ -1,3 +1,6 @@
+'use strict'
+
+const gitRemoteOriginUrl = require('git-remote-origin-url')
 
 module.exports = class LCL {
   constructor (dir = process.cwd()) {
@@ -16,13 +19,17 @@ module.exports = class LCL {
     const command = 'git log -1 --pretty=format:"' + prettyFormat.join(splitCharacter) + '"'
 
     let c
+    let gitRemote
     try {
       const { stdout } = await exec(command, { cwd: this.cwd })
       c = stdout.split(splitCharacter)
+      gitRemote = await gitRemoteOriginUrl(this.cwd)
     } catch (e) {
       throw new Error(`Can't get last commit, ${e.stderr}`)
     }
     return ({
+      gitRemote,
+      gitUrl: this._formatGitHttpUrl(gitRemote),
       shortHash: c[0],
       hash: c[1],
       subject: c[2],
@@ -41,5 +48,22 @@ module.exports = class LCL {
         email: c[12]
       }
     })
+  }
+
+  /**
+   * git@github.com:group/repo.git     => http://github.com/group/repo
+   * https://github.com/group/repo.git => https://github.com/group/repo
+   */
+  _formatGitHttpUrl (remote = '') {
+    if (remote.startsWith('git@')) {
+      return 'http://' + remote
+        .replace(/^git@/, '')
+        .replace(/.git$/, '')
+        .replace(/:/, '/')
+    }
+    if (remote.startsWith('http') && remote.endsWith('.git')) {
+      return remote.replace(/\.git$/, '')
+    }
+    return remote
   }
 }

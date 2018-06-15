@@ -9,9 +9,7 @@
 </p>
 
 
-Node.js module to read last git commit information including tags and branch - mostly to be used by continuous integration and build systems for build tagging purposes.
-
-> fork from [git-last-commit](https://github.com/seymen/git-last-commit)
+Node.js module to read last git commit information - mostly to be used by continuous integration and build systems for build tagging purposes.
 
 ## Usage
 
@@ -19,35 +17,25 @@ Node.js module to read last git commit information including tags and branch - m
 
 ```javascript
 const LCL = require('last-commit-log')
-const lcl = new LCL(dir) // dir is process.cwd() by default
+const lcl = new LCL() // or `new LCL(dir)` dir is process.cwd() by default
 
+// @throws error
 async function lcommit () {
-  try {
-    const commit = await lcl.getLastCommit()
-    console.log(commit)
-  } catch (err) {
-    console.error(err)
-  }
+  const commit = await lcl.getLastCommit()
+  console.log(commit)
 }
 
 lcommit()
 ```
 
-#### Promise
-
-```javascript
-const LCL = require('last-commit-log')
-const lcl = new LCL()
-
-lcl.getLastCommit()
-  .then(commit => console.log(commit))
-  .catch(e => console.error(e))
-```
+[full examples](./examples)
 
 commit is an object like this:
 
 ```javascript
 {
+  "gitRemote": "git@github.com:group/repo.git", // .git http or ssh
+  "gitUrl": "http://github.com/group/repo",     // url only
   "shortHash": "42dc921",
   "hash": "42dc921d25a3e7e1607302d2acfdc3fd991c0c01",
   "subject": "chore: add lock",
@@ -67,4 +55,6 @@ commit is an object like this:
   }
 }
 ```
+
+> inspired by [git-last-commit](https://github.com/seymen/git-last-commit) and fixed the parsing issue.
 
