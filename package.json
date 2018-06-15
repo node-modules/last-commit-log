@@ -32,7 +32,7 @@
   },
   "homepage": "https://github.com/zhangyuheng/last-commit-log",
   "devDependencies": {
-    "eslint": "^4.14.0",
+    "eslint": "^4.19.1",
     "eslint-config-standard": "^11.0.0",
     "eslint-plugin-import": "^2.12.0",
     "eslint-plugin-node": "^6.0.1",
