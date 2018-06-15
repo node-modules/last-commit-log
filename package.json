@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "prune": "npm prune",
-    "lint": "eslint src test examples --fix",
+    "lint": "eslint . --fix",
     "test": "npm run lint && nyc --reporter=lcov --reporter=text mocha",
     "report-coverage": "nyc report --reporter=text-lcov > coverage.lcov && codecov"
   },
