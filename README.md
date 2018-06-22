@@ -5,7 +5,6 @@
 [![build status][travis-image]][travis-url]
 [![Test coverage][coveralls-image]][coveralls-url]
 [![node version][node-image]][node-url]
-[![docker pull][docker-image]][docker-url]
 
 [travis-image]: https://img.shields.io/travis/macacajs/last-commit-log.svg?style=flat-square
 [travis-url]: https://travis-ci.org/macacajs/last-commit-log
