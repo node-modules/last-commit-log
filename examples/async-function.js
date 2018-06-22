@@ -1,5 +1,5 @@
 const LCL = require('..')
-const lcl = new LCL()
+const lcl = new LCL(process.argv.slice(2)[0])
 
 async function lcommit () {
   try {

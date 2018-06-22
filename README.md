@@ -42,6 +42,7 @@ commit is an object like this:
 
 ```javascript
 {
+  "gitTag": "2.0.0",
   "gitBranch": "master",
   "gitRemote": "git@github.com:group/repo.git", // .git http or ssh
   "gitUrl": "http://github.com/group/repo",     // url only

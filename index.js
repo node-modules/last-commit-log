@@ -21,16 +21,21 @@ module.exports = class LCL {
     let c
     let gitRemote
     let gitBranch
+    let gitTag
     try {
-      const { stdout } = await exec(command, { cwd: this.cwd })
+      const opts = { cwd: this.cwd }
+      const { stdout } = await exec(command, opts)
       c = stdout.split(splitCharacter)
-      const { stdout: branch } = await exec('git name-rev --name-only HEAD')
+      const { stdout: branch } = await exec('git name-rev --name-only HEAD', opts)
+      const { stdout: tag } = await exec('git tag --contains HEAD', opts)
       gitBranch = branch.trim().replace('remotes/origin/', '')
+      gitTag = tag.trim()
       gitRemote = await gitRemoteOriginUrl(this.cwd)
     } catch (e) {
       throw new Error(`Can't get last commit, ${e.stderr}`)
     }
     return ({
+      gitTag,
       gitBranch,
       gitRemote,
       gitUrl: this._formatGitHttpUrl(gitRemote),
