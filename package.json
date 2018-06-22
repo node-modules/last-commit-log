@@ -7,7 +7,6 @@
     "prune": "npm prune",
     "lint": "eslint . --fix",
     "test": "npm run lint && nyc --reporter=lcov --reporter=text mocha",
-    "report-coverage": "nyc report --reporter=text-lcov > coverage.lcov && codecov",
     "contributor": "git-contributor"
   },
   "files": [
@@ -36,8 +35,10 @@
     "eslint-plugin-promise": "^3.8.0",
     "eslint-plugin-standard": "^3.1.0",
     "git-contributor": "^1.0.8",
+    "intelli-espower-loader": "^1.0.1",
     "mocha": "4",
     "nyc": "11",
+    "power-assert": "^1.6.0",
     "sinon": "4"
   },
   "dependencies": {
