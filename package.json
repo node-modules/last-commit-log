@@ -14,7 +14,7 @@
   ],
   "repository": {
     "type": "git",
-    "url": "https://github.com/zhangyuheng/last-commit-log"
+    "url": "https://github.com/macacajs/last-commit-log"
   },
   "keywords": [
     "git",
@@ -25,12 +25,12 @@
   "author": "Yuheng Zhang",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/zhangyuheng/last-commit-log/issues"
+    "url": "https://github.com/macacajs/last-commit-log/issues"
   },
   "engines": {
     "node": ">= 8"
   },
-  "homepage": "https://github.com/zhangyuheng/last-commit-log",
+  "homepage": "https://github.com/macacajs/last-commit-log",
   "devDependencies": {
     "eslint": "^4.19.1",
     "eslint-config-standard": "^11.0.0",
