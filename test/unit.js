@@ -27,8 +27,8 @@ describe('feature: return last commit info', function () {
 
     return lcl.getLastCommit().then(commit => {
       assert.ok(commit)
-      assert(commit.gitRemote === 'git@github.com:zhangyuheng/last-commit-log.git')
-      assert(commit.gitUrl === 'http://github.com/zhangyuheng/last-commit-log')
+      assert(commit.gitRemote === 'git@github.com:macacajs/last-commit-log.git')
+      assert(commit.gitUrl === 'http://github.com/macacajs/last-commit-log')
       assert.equal(commit.shortHash, '42dc921')
       assert.equal(commit.hash, '42dc921d25a3e7e1607302d2acfdc3fd991c0c01')
       assert.equal(commit.subject, 'chore: add lock')
@@ -47,7 +47,7 @@ describe('feature: return last commit info', function () {
 
   it('should _fotmatGitHttpUrl correctly', function () {
     assert(lcl._formatGitHttpUrl() === '')
-    assert(lcl._formatGitHttpUrl('https://github.com/zhangyuheng/last-commit-log.git') === 'https://github.com/zhangyuheng/last-commit-log')
+    assert(lcl._formatGitHttpUrl('https://github.com/macacajs/last-commit-log.git') === 'https://github.com/macacajs/last-commit-log')
   })
 
   it('should throw error', function () {

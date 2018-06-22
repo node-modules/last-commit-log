@@ -3,6 +3,8 @@ coverage
 .idea
 *.iml
 *.tgz
+*.sw*
+*.un~
 .nyc_output
 coverage.lcov
 package-lock.json

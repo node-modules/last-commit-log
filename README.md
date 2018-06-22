@@ -1,8 +1,8 @@
 # last-commit-log
 
 <p>
-  <a href="https://circleci.com/gh/zhangyuheng/last-commit-log/tree/master"><img src="https://img.shields.io/circleci/project/zhangyuheng/last-commit-log/master.svg" alt="Build Status"></a>
-  <a href="https://codecov.io/github/zhangyuheng/last-commit-log?branch=master"><img src="https://img.shields.io/codecov/c/github/zhangyuheng/last-commit-log/master.svg" alt="Coverage Status"></a>
+  <a href="https://circleci.com/gh/macacajs/last-commit-log/tree/master"><img src="https://img.shields.io/circleci/project/macacajs/last-commit-log/master.svg" alt="Build Status"></a>
+  <a href="https://codecov.io/github/macacajs/last-commit-log?branch=master"><img src="https://img.shields.io/codecov/c/github/macacajs/last-commit-log/master.svg" alt="Coverage Status"></a>
   <a href="https://www.npmjs.com/package/last-commit-log"><img src="https://img.shields.io/npm/v/last-commit-log.svg" alt="Version"></a>
   <a href="https://www.npmjs.com/package/last-commit-log"><img src="https://img.shields.io/npm/l/last-commit-log.svg" alt="License"></a>
   <a href="https://www.npmjs.com/package/last-commit-log"><img src="https://img.shields.io/node/v/last-commit-log.svg" alt="Node.js"></a>
