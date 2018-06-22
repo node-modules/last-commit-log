@@ -7,7 +7,8 @@
     "prune": "npm prune",
     "lint": "eslint . --fix",
     "test": "npm run lint && nyc --reporter=lcov --reporter=text mocha",
-    "report-coverage": "nyc report --reporter=text-lcov > coverage.lcov && codecov"
+    "report-coverage": "nyc report --reporter=text-lcov > coverage.lcov && codecov",
+    "contributor": "git-contributor"
   },
   "files": [
     "src"
@@ -22,11 +23,7 @@
     "history",
     "log"
   ],
-  "author": "Yuheng Zhang",
   "license": "MIT",
-  "bugs": {
-    "url": "https://github.com/macacajs/last-commit-log/issues"
-  },
   "engines": {
     "node": ">= 8"
   },
@@ -38,6 +35,7 @@
     "eslint-plugin-node": "^6.0.1",
     "eslint-plugin-promise": "^3.8.0",
     "eslint-plugin-standard": "^3.1.0",
+    "git-contributor": "^1.0.8",
     "mocha": "4",
     "nyc": "11",
     "sinon": "4"
