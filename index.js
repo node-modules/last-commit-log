@@ -26,13 +26,16 @@ module.exports = class LCL {
       const opts = { cwd: this.cwd }
       const { stdout } = await exec(command, opts)
       c = stdout.split(splitCharacter)
-      const { stdout: branch } = await exec('git name-rev --name-only HEAD', opts)
+      const { stdout: revParseBranch } = await exec('git rev-parse --abbrev-ref HEAD', opts)
+      const { stdout: nameRevBranch } = await exec('git name-rev --name-only HEAD', opts)
       const { stdout: tag } = await exec('git tag --contains HEAD', opts)
-      gitBranch = branch.trim().replace('remotes/origin/', '')
+      const branch1 = revParseBranch.trim()
+      const branch2 = nameRevBranch.trim().replace('remotes/origin/', '')
+      gitBranch = branch1 === 'HEAD' ? branch2 : branch1
       gitTag = tag.trim()
       gitRemote = await gitRemoteOriginUrl(this.cwd)
     } catch (e) {
-      throw new Error(`Can't get last commit, ${e.stderr}`)
+      throw new Error(`Can't get last commit, ${e}`)
     }
     return ({
       gitTag,
