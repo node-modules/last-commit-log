@@ -2,16 +2,22 @@
 
 ---
 
+[![NPM version][npm-image]][npm-url]
 [![build status][travis-image]][travis-url]
 [![Test coverage][coveralls-image]][coveralls-url]
 [![node version][node-image]][node-url]
+[![npm download][download-image]][download-url]
 
+[npm-image]: https://img.shields.io/npm/v/last-commit-log.svg?style=flat-square
+[npm-url]: https://npmjs.org/package/last-commit-log
 [travis-image]: https://img.shields.io/travis/macacajs/last-commit-log.svg?style=flat-square
 [travis-url]: https://travis-ci.org/macacajs/last-commit-log
-[coveralls-image]: https://img.shields.io/codecov/c/github/macacajs/last-commit-log.svg?style=flat-square
-[coveralls-url]: https://codecov.io/gh/macacajs/last-commit-log
+[coveralls-image]: https://img.shields.io/coveralls/macacajs/last-commit-log.svg?style=flat-square
+[coveralls-url]: https://coveralls.io/r/macacajs/last-commit-log?branch=master
 [node-image]: https://img.shields.io/badge/node.js-%3E=_8-green.svg?style=flat-square
 [node-url]: http://nodejs.org/download/
+[download-image]: https://img.shields.io/npm/dm/last-commit-log.svg?style=flat-square
+[download-url]: https://npmjs.org/package/last-commit-log
 
 > Node.js module to read last git commit information - mostly to be used by continuous integration and build systems for build tagging purposes.
 
