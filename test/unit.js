@@ -52,15 +52,14 @@ describe('feature: return last commit info', function () {
 
   it('should throw error', function () {
     stub = sinon.stub(util, 'promisify').callsFake(() => {
-      const err = new Error()
-      err.stderr = 'git command not found'
+      const err = new Error('git command not found')
       return () => Promise.reject(err)
     })
 
     return lcl.getLastCommit().then(() => {
       assert.fail()
     }).catch(err => {
-      assert(err.message === 'Can\'t get last commit, git command not found')
+      assert(err.message === 'Can\'t get last commit, Error: git command not found')
     })
   })
 })
