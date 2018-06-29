@@ -88,18 +88,18 @@ async function getGitBranch (opts = {}) {
     exec('git log -n 1 --pretty=%d HEAD', opts)
   ])
 
-  const branch1 = revParseBranch.trim()
-  const branch2 = nameRevBranch.trim().replace('remotes/origin/', '')
-  const branch3 = gitLogBranch.split(',')
+  const branchRP = revParseBranch.trim()
+  const branchNR = nameRevBranch.trim().replace('remotes/origin/', '')
+  const branchGL = gitLogBranch.split(',')
     .filter(i => i.includes('origin/'))
     .map(i => i.trim())
     .map(i => i.split('/')[1])
     .map(i => i.replace(/[()]/, ''))
     .filter(i => i !== 'HEAD')
-  _branch = branch1 !== 'HEAD'
-    ? branch1
-    : !branch2.startsWith('tags/')
-      ? branch2 : branch3.length > 1
-        ? branch3.filter(i => i !== 'master')[0] : branch3[0]
+  _branch = branchRP !== 'HEAD'
+    ? branchRP
+    : !branchNR.startsWith('tags/')
+      ? branchNR : branchGL.length > 1
+        ? branchGL.filter(i => i !== 'master')[0] : branchGL[0]
   return _branch
 }
