@@ -1,6 +1,8 @@
 'use strict'
 
 const gitRemoteOriginUrl = require('git-remote-origin-url')
+const promisify = require('util').promisify
+const exec = promisify(require('child_process').exec)
 
 module.exports = class LCL {
   constructor (dir = process.cwd()) {
@@ -8,8 +10,6 @@ module.exports = class LCL {
   }
 
   async getLastCommit () {
-    const promisify = require('util').promisify
-    const exec = promisify(require('child_process').exec)
     const prettyFormat = [
       '%h', '%H', '%s', '%f', '%b',
       '%ct', '%cr', '%cn', '%ce',
@@ -26,12 +26,8 @@ module.exports = class LCL {
       const opts = { cwd: this.cwd }
       const { stdout } = await exec(command, opts)
       c = stdout.split(splitCharacter)
-      const { stdout: revParseBranch } = await exec('git rev-parse --abbrev-ref HEAD', opts)
-      const { stdout: nameRevBranch } = await exec('git name-rev --name-only HEAD', opts)
+      gitBranch = await getGitBranch(opts)
       const { stdout: tag } = await exec('git tag --contains HEAD', opts)
-      const branch1 = revParseBranch.trim()
-      const branch2 = nameRevBranch.trim().replace('remotes/origin/', '')
-      gitBranch = branch1 === 'HEAD' ? branch2 : branch1
       gitTag = tag.trim()
       gitRemote = await gitRemoteOriginUrl(this.cwd)
     } catch (e) {
@@ -78,4 +74,32 @@ module.exports = class LCL {
     }
     return remote
   }
+}
+
+async function getGitBranch (opts = {}) {
+  let _branch = ''
+  const [
+    { stdout: revParseBranch },
+    { stdout: nameRevBranch },
+    { stdout: gitLogBranch }
+  ] = await Promise.all([
+    exec('git rev-parse --abbrev-ref HEAD', opts),
+    exec('git name-rev --name-only HEAD', opts),
+    exec('git log -n 1 --pretty=%d HEAD', opts)
+  ])
+
+  const branch1 = revParseBranch.trim()
+  const branch2 = nameRevBranch.trim().replace('remotes/origin/', '')
+  const branch3 = gitLogBranch.split(',')
+    .filter(i => i.includes('origin/'))
+    .map(i => i.trim())
+    .map(i => i.split('/')[1])
+    .map(i => i.replace(/[()]/, ''))
+    .filter(i => i !== 'HEAD')
+  _branch = branch1 !== 'HEAD'
+    ? branch1
+    : !branch2.startsWith('tags/')
+      ? branch2 : branch3.length > 1
+        ? branch3.filter(i => i !== 'master')[0] : branch3[0]
+  return _branch
 }
