@@ -4,13 +4,12 @@
   "description": "read git last commit log",
   "main": "index.js",
   "scripts": {
-    "prune": "npm prune",
     "lint": "eslint . --fix",
     "test": "npm run lint && nyc --reporter=lcov --reporter=text mocha",
     "contributor": "git-contributor"
   },
   "files": [
-    "src"
+    "index.js"
   ],
   "repository": {
     "type": "git",
