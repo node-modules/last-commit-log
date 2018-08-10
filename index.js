@@ -15,7 +15,7 @@ module.exports = class LCL {
       '%ct', '%cr', '%cn', '%ce',
       '%at', '%ar', '%an', '%ae'
     ]
-    const splitCharacter = `<#__last-commit-log__#>`
+    const splitCharacter = '<#__last-commit-log__#>'
     const command = 'git log -1 --pretty=format:"' + prettyFormat.join(splitCharacter) + '"'
 
     let c
@@ -89,7 +89,9 @@ async function getGitBranch (opts = {}) {
   ])
 
   const branchRP = revParseBranch.trim()
-  const branchNR = nameRevBranch.trim().replace('remotes/origin/', '')
+  const branchNR = nameRevBranch.trim()
+    .replace('remotes/origin/', '')
+    .replace(/~\d+$/, '') // in case 'develop~1'
   const branchGL = gitLogBranch.split(',')
     .filter(i => i.includes('origin/'))
     .map(i => i.trim())
