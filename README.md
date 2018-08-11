@@ -19,7 +19,7 @@
 [download-image]: https://img.shields.io/npm/dm/last-commit-log.svg?style=flat-square
 [download-url]: https://npmjs.org/package/last-commit-log
 
-> Node.js module to read last git commit information - mostly to be used by continuous integration and build systems.
+> Node.js module to read last git commit information - mostly to be used by CI/CD and build systems.
 
 ## Usage
 
