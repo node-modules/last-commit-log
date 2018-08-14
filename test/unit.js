@@ -7,8 +7,8 @@ describe('feature: return last commit info', function () {
     const lcl = new LCL()
     return lcl.getLastCommit().then(commit => {
       assert.ok(commit)
-      assert(commit.gitRemote === 'git@github.com:macacajs/last-commit-log.git' || commit.gitRemote === 'https://github.com/macacajs/last-commit-log.git')
-      assert(commit.gitUrl === 'http://github.com/macacajs/last-commit-log' || commit.gitUrl === 'https://github.com/macacajs/last-commit-log')
+      assert(commit.gitRemote === 'git@github.com:node-modules/last-commit-log.git' || commit.gitRemote === 'https://github.com/node-modules/last-commit-log.git')
+      assert(commit.gitUrl === 'http://github.com/node-modules/last-commit-log' || commit.gitUrl === 'https://github.com/node-modules/last-commit-log')
       assert(typeof commit.shortHash === 'string')
       assert(typeof commit.hash === 'string')
       assert(typeof commit.subject === 'string')
@@ -28,7 +28,7 @@ describe('feature: return last commit info', function () {
   it('should _fotmatGitHttpUrl correctly', function () {
     const lcl = new LCL()
     assert(lcl._formatGitHttpUrl() === '')
-    assert(lcl._formatGitHttpUrl('https://github.com/macacajs/last-commit-log.git') === 'https://github.com/macacajs/last-commit-log')
+    assert(lcl._formatGitHttpUrl('https://github.com/node-modules/last-commit-log.git') === 'https://github.com/node-modules/last-commit-log')
   })
 
   it('should throw error', function () {

@@ -10,10 +10,10 @@
 
 [npm-image]: https://img.shields.io/npm/v/last-commit-log.svg?style=flat-square
 [npm-url]: https://npmjs.org/package/last-commit-log
-[travis-image]: https://img.shields.io/travis/macacajs/last-commit-log.svg?style=flat-square
-[travis-url]: https://travis-ci.org/macacajs/last-commit-log
-[codecov-image]: https://img.shields.io/codecov/c/github/macacajs/last-commit-log.svg?style=flat-square
-[codecov-url]: https://codecov.io/gh/macacajs/last-commit-log/branch/master
+[travis-image]: https://img.shields.io/travis/node-modules/last-commit-log.svg?style=flat-square
+[travis-url]: https://travis-ci.org/node-modules/last-commit-log
+[codecov-image]: https://img.shields.io/codecov/c/github/node-modules/last-commit-log.svg?style=flat-square
+[codecov-url]: https://codecov.io/gh/node-modules/last-commit-log/branch/master
 [node-image]: https://img.shields.io/badge/node.js-%3E=_8-green.svg?style=flat-square
 [node-url]: http://nodejs.org/download/
 [download-image]: https://img.shields.io/npm/dm/last-commit-log.svg?style=flat-square
@@ -76,7 +76,7 @@ commit is an object like this:
 | :---: | :---: |
 
 
-This project follows the git-contributor [spec](https://github.com/xudafeng/git-contributor), auto upated at `Fri Jun 22 2018 13:55:26 GMT+0800`.
+This project follows the git-contributor [spec](https://github.com/xudafeng/git-contributor), auto upated at `Tue Aug 14 2018 13:43:42 GMT+0800`.
 
 <!-- GITCONTRIBUTOR_END -->
 
