@@ -26,7 +26,9 @@ module.exports = class LCL {
       const opts = { cwd: this.cwd }
       const { stdout } = await exec(command, opts)
       c = stdout.split(splitCharacter)
-      gitBranch = await getGitBranch(opts)
+      gitBranch = await getGitBranch(opts, {
+        shortHash: c[0]
+      })
       const { stdout: tag } = await exec('git tag --contains HEAD', opts)
       gitTag = tag.trim()
       gitRemote = await gitRemoteOriginUrl(this.cwd)
@@ -76,7 +78,7 @@ module.exports = class LCL {
   }
 }
 
-async function getGitBranch (opts = {}) {
+async function getGitBranch (opts = {}, { shortHash }) {
   let _branch = ''
   const [
     { stdout: revParseBranch },
@@ -103,5 +105,7 @@ async function getGitBranch (opts = {}) {
     : !branchNR.startsWith('tags/')
       ? branchNR : branchGL.length > 1
         ? branchGL.filter(i => i !== 'master')[0] : branchGL[0]
+  // in case branch is deleted
+  if (!_branch) _branch = `branch_is_deleted_${shortHash}`
   return _branch
 }
