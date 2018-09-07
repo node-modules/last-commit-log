@@ -1,6 +1,6 @@
 {
   "name": "last-commit-log",
-  "version": "1.0.12",
+  "version": "1.0.13",
   "description": "read git last commit log",
   "main": "index.js",
   "scripts": {

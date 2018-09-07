@@ -1,5 +1,6 @@
 'use strict'
 
+const url = require('url')
 const gitRemoteOriginUrl = require('git-remote-origin-url')
 const promisify = require('util').promisify
 const exec = promisify(require('child_process').exec)
@@ -62,7 +63,7 @@ module.exports = class LCL {
 
   /**
    * git@github.com:group/repo.git     => http://github.com/group/repo
-   * https://github.com/group/repo.git => https://github.com/group/repo
+   * https://user@token@github.com/group/repo.git => https://github.com/group/repo
    */
   _formatGitHttpUrl (remote = '') {
     if (remote.startsWith('git@')) {
@@ -72,7 +73,8 @@ module.exports = class LCL {
         .replace(/:/, '/')
     }
     if (remote.startsWith('http') && remote.endsWith('.git')) {
-      return remote.replace(/\.git$/, '')
+      const parsed = url.parse(remote.replace(/\.git$/, ''))
+      return `${parsed.protocol}//${parsed.host}${parsed.path}`
     }
     return remote
   }
