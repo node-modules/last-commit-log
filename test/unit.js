@@ -38,7 +38,8 @@ describe('feature: return last commit info', function() {
     return lcl.getLastCommit().then(() => {
       assert.fail();
     }).catch(err => {
-      assert(err.message === 'Can\'t get last commit, Error: spawn ENOTDIR');
+      // console.log(err.stack);
+      assert(err.message.includes('Can\'t get last commit'));
     });
   });
 });

@@ -1,11 +1,11 @@
 {
   "name": "last-commit-log",
-  "version": "1.0.13",
+  "version": "2.0.0",
   "description": "Node.js module to get the last git commit information - mostly to be used by CI/CD and building phase",
   "main": "index.js",
   "scripts": {
     "lint": "eslint .",
-    "test": "npm run lint && nyc --reporter=lcov --reporter=text mocha",
+    "test": "nyc --reporter=lcov --reporter=text mocha",
     "contributor": "git-contributor"
   },
   "files": [
@@ -35,6 +35,6 @@
     "sinon": "4"
   },
   "dependencies": {
-    "git-remote-origin-url": "^2.0.0"
+    "dotgitconfig": "^1.0.1"
   }
 }
