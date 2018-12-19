@@ -24,7 +24,7 @@ module.exports = class LCL {
     let gitTag;
     try {
       const opts = {
-        cwd: this.cwd
+        cwd: this.cwd,
       };
       const stdout = execSync(command, opts).toString();
       c = stdout.split(splitCharacter);
@@ -38,6 +38,7 @@ module.exports = class LCL {
     } catch (e) {
       throw new Error(`Can't get last commit, ${e}`);
     }
+
     return {
       gitTag,
       gitBranch,

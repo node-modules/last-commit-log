@@ -38,7 +38,7 @@ describe('feature: return last commit info', function() {
     return lcl.getLastCommit().then(() => {
       assert.fail();
     }).catch(err => {
-      //console.log(err.stack);
+      // console.log(err.stack);
       assert(err.message.includes('Can\'t get last commit'));
     });
   });
