@@ -19,28 +19,28 @@
 [download-image]: https://img.shields.io/npm/dm/last-commit-log.svg?style=flat-square
 [download-url]: https://npmjs.org/package/last-commit-log
 
-> Node.js module to read last git commit information - mostly to be used by CI/CD and build systems.
+> Node.js module to get the last git commit information - mostly to be used by CI/CD and building phase.
 
 ## Usage
 
 ```javascript
-const LCL = require('last-commit-log')
-const lcl = new LCL() // or `new LCL(dir)` dir is process.cwd() by default
+const LCL = require('last-commit-log');
+const lcl = new LCL(); // or `new LCL(dir)` dir is process.cwd() by default
 
 // @throws error
 async function run () {
-  const commit = await lcl.getLastCommit()
-  console.log(commit)
+  const commit = await lcl.getLastCommit();
+  console.log(commit);
 }
 
-run()
+run();
 ```
 
 [full examples](./examples)
 
-commit is an object like this:
+commit information is an object like this:
 
-```javascript
+```json
 {
   "gitTag": "2.0.0",
   "gitBranch": "master",
