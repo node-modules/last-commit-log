@@ -1,6 +1,6 @@
 {
   "name": "last-commit-log",
-  "version": "1.1.0",
+  "version": "2.0.0",
   "description": "Node.js module to get the last git commit information - mostly to be used by CI/CD and building phase",
   "main": "index.js",
   "scripts": {
@@ -35,6 +35,6 @@
     "sinon": "4"
   },
   "dependencies": {
-    "git-remote-origin-url": "^2.0.0"
+    "dotgitconfig": "^1.0.1"
   }
 }

@@ -27,13 +27,9 @@
 const LCL = require('last-commit-log');
 const lcl = new LCL(); // or `new LCL(dir)` dir is process.cwd() by default
 
-// @throws error
-async function run () {
-  const commit = await lcl.getLastCommit();
-  console.log(commit);
-}
-
-run();
+lcl
+  .getLastCommit()
+  .then(commit => console.log(commit));
 ```
 
 [full examples](./examples)

@@ -1,8 +1,8 @@
 'use strict';
 
 const url = require('url');
+const dotgitconfig = require('dotgitconfig');
 const { execSync } = require('child_process');
-const gitRemoteOriginUrl = require('git-remote-origin-url');
 
 module.exports = class LCL {
   constructor(dir = process.cwd()) {
@@ -33,7 +33,8 @@ module.exports = class LCL {
       });
       const tag = execSync('git tag --contains HEAD', opts).toString();
       gitTag = tag.trim();
-      gitRemote = await gitRemoteOriginUrl(this.cwd);
+      const config = dotgitconfig(this.cwd);
+      gitRemote = config.remote && config.remote.origin && config.remote.origin.url;
     } catch (e) {
       throw new Error(`Can't get last commit, ${e}`);
     }
