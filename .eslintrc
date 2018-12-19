@@ -1,6 +1,6 @@
 {
-  "extends": "standard",
-  "env": {
-    "mocha": true
+  "extends": "eslint-config-egg",
+  "rules": {
+    "valid-jsdoc": 0
   }
 }

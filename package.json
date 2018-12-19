@@ -1,10 +1,10 @@
 {
   "name": "last-commit-log",
   "version": "1.0.13",
-  "description": "read git last commit log",
+  "description": "Node.js module to get the last git commit information - mostly to be used by CI/CD and building phase",
   "main": "index.js",
   "scripts": {
-    "lint": "eslint . --fix",
+    "lint": "eslint .",
     "test": "npm run lint && nyc --reporter=lcov --reporter=text mocha",
     "contributor": "git-contributor"
   },
@@ -25,19 +25,13 @@
   "engines": {
     "node": ">= 8"
   },
-  "homepage": "https://github.com/node-modules/last-commit-log",
   "devDependencies": {
     "eslint": "^4.19.1",
-    "eslint-config-standard": "^11.0.0",
-    "eslint-plugin-import": "^2.12.0",
-    "eslint-plugin-node": "^6.0.1",
-    "eslint-plugin-promise": "^3.8.0",
-    "eslint-plugin-standard": "^3.1.0",
+    "eslint-config-egg": "^7.1.0",
+    "eslint-plugin-eggache": "^1.0.0",
     "git-contributor": "^1.0.8",
-    "intelli-espower-loader": "^1.0.1",
     "mocha": "4",
     "nyc": "11",
-    "power-assert": "^1.6.0",
     "sinon": "4"
   },
   "dependencies": {
