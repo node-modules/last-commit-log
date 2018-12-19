@@ -1,9 +1,8 @@
 'use strict';
 
 const url = require('url');
+const { execSync } = require('child_process');
 const gitRemoteOriginUrl = require('git-remote-origin-url');
-const promisify = require('util').promisify;
-const exec = promisify(require('child_process').exec);
 
 module.exports = class LCL {
   constructor(dir = process.cwd()) {
@@ -24,19 +23,21 @@ module.exports = class LCL {
     let gitBranch;
     let gitTag;
     try {
-      const opts = { cwd: this.cwd };
-      const { stdout } = await exec(command, opts);
+      const opts = {
+        cwd: this.cwd
+      };
+      const stdout = execSync(command, opts).toString();
       c = stdout.split(splitCharacter);
-      gitBranch = await getGitBranch(opts, {
+      gitBranch = getGitBranch(opts, {
         shortHash: c[0],
       });
-      const { stdout: tag } = await exec('git tag --contains HEAD', opts);
+      const tag = execSync('git tag --contains HEAD', opts).toString();
       gitTag = tag.trim();
       gitRemote = await gitRemoteOriginUrl(this.cwd);
     } catch (e) {
       throw new Error(`Can't get last commit, ${e}`);
     }
-    return ({
+    return {
       gitTag,
       gitBranch,
       gitRemote,
@@ -58,7 +59,7 @@ module.exports = class LCL {
         name: c[11],
         email: c[12],
       },
-    });
+    };
   }
 
   /**
@@ -80,23 +81,12 @@ module.exports = class LCL {
   }
 };
 
-async function getGitBranch(opts = {}, { shortHash }) {
+function getGitBranch(opts = {}, { shortHash }) {
   let _branch = '';
-  const [
-    {
-      stdout: revParseBranch,
-    },
-    {
-      stdout: nameRevBranch,
-    },
-    {
-      stdout: gitLogBranch,
-    },
-  ] = await Promise.all([
-    exec('git rev-parse --abbrev-ref HEAD', opts),
-    exec('git name-rev --name-only HEAD', opts),
-    exec('git log -n 1 --pretty=%d HEAD', opts),
-  ]);
+
+  const revParseBranch = execSync('git rev-parse --abbrev-ref HEAD', opts).toString();
+  const nameRevBranch = execSync('git name-rev --name-only HEAD', opts).toString();
+  const gitLogBranch = execSync('git log -n 1 --pretty=%d HEAD', opts).toString();
 
   const branchRP = revParseBranch.trim();
   const branchNR = nameRevBranch.trim()
