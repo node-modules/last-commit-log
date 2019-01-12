@@ -27,6 +27,26 @@ describe('feature: return last commit info', function() {
     });
   });
 
+  it('should work with sync', function() {
+    const lcl = new LCL();
+    const commit = lcl.getLastCommitSync();
+    assert(commit.gitRemote === 'git@github.com:node-modules/last-commit-log.git' || commit.gitRemote === 'https://github.com/node-modules/last-commit-log.git');
+    assert(commit.gitUrl === 'http://github.com/node-modules/last-commit-log' || commit.gitUrl === 'https://github.com/node-modules/last-commit-log');
+    assert(typeof commit.shortHash === 'string');
+    assert(typeof commit.hash === 'string');
+    assert(typeof commit.subject === 'string');
+    assert(typeof commit.sanitizedSubject === 'string');
+    assert(typeof commit.body === 'string');
+    assert(typeof commit.committer.date === 'string');
+    assert(typeof commit.committer.relativeDate === 'string');
+    assert(typeof commit.committer.name === 'string');
+    assert(typeof commit.committer.email === 'string');
+    assert(typeof commit.author.date === 'string');
+    assert(typeof commit.author.relativeDate === 'string');
+    assert(typeof commit.author.name === 'string');
+    assert(typeof commit.author.email === 'string');
+  });
+
   it('should _fotmatGitHttpUrl correctly', function() {
     const lcl = new LCL();
     assert(lcl._formatGitHttpUrl() === '');

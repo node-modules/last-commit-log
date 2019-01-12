@@ -10,6 +10,10 @@ module.exports = class LCL {
   }
 
   async getLastCommit() {
+    return this.getLastCommitSync();
+  }
+
+  getLastCommitSync() {
     const prettyFormat = [
       '%h', '%H', '%s', '%f', '%b',
       '%ct', '%cr', '%cn', '%ce',
