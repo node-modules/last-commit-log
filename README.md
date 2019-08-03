@@ -21,6 +21,12 @@
 
 > Node.js module to get the last git commit information - mostly to be used by CI/CD and building phase.
 
+## Who are using
+
+- ⭐⭐⭐[niftylettuce/forward-email](//github.com/niftylettuce/forward-email)
+- ⭐⭐⭐[cabinjs/cabin](//github.com/cabinjs/cabin)
+- ⭐⭐⭐[microsoft/BotFramework-WebChat](//github.com/microsoft/BotFramework-WebChat)
+
 ## Usage
 
 ```javascript
