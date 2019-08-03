@@ -27,6 +27,8 @@
 - ⭐⭐⭐[cabinjs/cabin](//github.com/cabinjs/cabin)
 - ⭐⭐⭐[microsoft/BotFramework-WebChat](//github.com/microsoft/BotFramework-WebChat)
 
+[For more](//github.com/node-modules/last-commit-log/network/dependents)
+
 ## Usage
 
 ```javascript
