@@ -6,6 +6,8 @@ const { execSync } = require('child_process');
 
 module.exports = class LCL {
   constructor(dir = process.cwd()) {
+    const { GIT_DIR } = process.env;
+    this.gitDirStr = GIT_DIR ? `--git-dir ${GIT_DIR}/.git` : '';
     this.cwd = dir;
   }
 
@@ -20,7 +22,7 @@ module.exports = class LCL {
       '%at', '%ar', '%an', '%ae',
     ];
     const splitCharacter = '<#__last-commit-log__#>';
-    const command = 'git log -1 --pretty=format:"' + prettyFormat.join(splitCharacter) + '"';
+    const command = `git ${this.gitDirStr} log -1 --pretty=format:"` + prettyFormat.join(splitCharacter) + '"';
 
     let c;
     let gitRemote;
@@ -29,13 +31,17 @@ module.exports = class LCL {
     try {
       const opts = {
         cwd: this.cwd,
+        maxBuffer: 1024 * 1024 * 1024,
       };
       const stdout = execSync(command, opts).toString();
       c = stdout.split(splitCharacter);
-      gitBranch = getGitBranch(opts, {
+      gitBranch = getGitBranch({
+        gitDirStr: this.gitDirStr,
+        ...opts,
+      }, {
         shortHash: c[0],
       });
-      const tag = execSync('git tag --contains HEAD', opts).toString();
+      const tag = execSync(`git ${this.gitDirStr} tag --contains HEAD`, opts).toString();
       gitTag = tag.trim();
       const config = dotgitconfig(this.cwd);
       gitRemote = config.remote && config.remote.origin && config.remote.origin.url;
@@ -90,9 +96,9 @@ module.exports = class LCL {
 function getGitBranch(opts = {}, { shortHash }) {
   let _branch = '';
 
-  const revParseBranch = execSync('git rev-parse --abbrev-ref HEAD', opts).toString();
-  const nameRevBranch = execSync('git name-rev --name-only HEAD', opts).toString();
-  const gitLogBranch = execSync('git log -n 1 --pretty=%d HEAD', opts).toString();
+  const revParseBranch = execSync(`git ${opts.gitDirStr} rev-parse --abbrev-ref HEAD`, opts).toString();
+  const nameRevBranch = execSync(`git ${opts.gitDirStr} name-rev --name-only HEAD`, opts).toString();
+  const gitLogBranch = execSync(`git ${opts.gitDirStr} log -n 1 --pretty=%d HEAD`, opts).toString();
 
   const branchRP = revParseBranch.trim();
   const branchNR = nameRevBranch.trim()
