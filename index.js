@@ -82,7 +82,7 @@ module.exports = class LCL {
     if (remote.startsWith('git@')) {
       return 'http://' + remote
         .replace(/^git@/, '')
-        .replace(/.git$/, '')
+        .replace(/\.git$/, '')
         .replace(/:/, '/');
     }
     if (remote.startsWith('http') && remote.endsWith('.git')) {
