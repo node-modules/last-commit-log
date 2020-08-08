@@ -86,11 +86,11 @@ commit information is an object like this:
 
 ## Contributors
 
-|[<img src="https://avatars1.githubusercontent.com/u/2139038?v=4" width="100px;"/><br/><sub><b>zhangyuheng</b></sub>](https://github.com/zhangyuheng)<br/>|[<img src="https://avatars1.githubusercontent.com/u/1011681?v=4" width="100px;"/><br/><sub><b>xudafeng</b></sub>](https://github.com/xudafeng)<br/>
-| :---: | :---: |
+|[<img src="https://avatars1.githubusercontent.com/u/2139038?v=4" width="100px;"/><br/><sub><b>zhangyuheng</b></sub>](https://github.com/zhangyuheng)<br/>|[<img src="https://avatars1.githubusercontent.com/u/1011681?v=4" width="100px;"/><br/><sub><b>xudafeng</b></sub>](https://github.com/xudafeng)<br/>|[<img src="https://avatars2.githubusercontent.com/u/1001610?v=4" width="100px;"/><br/><sub><b>stared</b></sub>](https://github.com/stared)<br/>|[<img src="https://avatars2.githubusercontent.com/u/197375?v=4" width="100px;"/><br/><sub><b>hi-yinyue</b></sub>](https://github.com/hi-yinyue)<br/>|
+| :---: | :---: | :---: | :---: |
 
 
-This project follows the git-contributor [spec](https://github.com/xudafeng/git-contributor), auto upated at `Tue Aug 14 2018 13:43:42 GMT+0800`.
+This project follows the git-contributor [spec](https://github.com/xudafeng/git-contributor), auto updated at `Sat Aug 08 2020 12:30:44 GMT+0800`.
 
 <!-- GITCONTRIBUTOR_END -->
 

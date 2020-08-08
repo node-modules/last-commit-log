@@ -22,9 +22,6 @@
     "log"
   ],
   "license": "MIT",
-  "engines": {
-    "node": ">= 8"
-  },
   "devDependencies": {
     "eslint": "^6.1.0",
     "eslint-config-egg": "^7.1.0",
