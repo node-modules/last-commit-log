@@ -34,10 +34,20 @@
 ```javascript
 const LCL = require('last-commit-log');
 const lcl = new LCL(); // or `new LCL(dir)` dir is process.cwd() by default
+```
 
+Asychronous use, using a Promise:
+
+```javascript
 lcl
   .getLastCommit()
   .then(commit => console.log(commit));
+```
+
+Synchronous use:
+
+```javascript
+const commit = lcl.getLastCommitSync();
 ```
 
 [full examples](./examples)
