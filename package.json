@@ -1,6 +1,6 @@
 {
   "name": "last-commit-log",
-  "version": "3.0.4",
+  "version": "3.1.1",
   "description": "Node.js module to get the last git commit information - mostly to be used by CI/CD and building phase",
   "main": "index.js",
   "scripts": {
@@ -9,7 +9,8 @@
     "contributor": "git-contributor"
   },
   "files": [
-    "index.js"
+    "index.js",
+    "line-diff.js"
   ],
   "repository": {
     "type": "git",

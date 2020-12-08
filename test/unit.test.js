@@ -4,8 +4,8 @@ const assert = require('assert');
 
 const LCL = require('..');
 
-describe('feature: return last commit info', function() {
-  it('should parse git commands fully', function() {
+describe('./test/unit.test.js', () => {
+  it('should parse git commands fully', () => {
     const lcl = new LCL();
     return lcl.getLastCommit().then(commit => {
       assert.ok(commit);
@@ -27,7 +27,7 @@ describe('feature: return last commit info', function() {
     });
   });
 
-  it('should work with sync', function() {
+  it('should work with sync', () => {
     const lcl = new LCL();
     const commit = lcl.getLastCommitSync();
     assert(commit.gitRemote === 'git@github.com:node-modules/last-commit-log.git' || commit.gitRemote === 'https://github.com/node-modules/last-commit-log.git');
@@ -47,13 +47,13 @@ describe('feature: return last commit info', function() {
     assert(typeof commit.author.email === 'string');
   });
 
-  it('should _fotmatGitHttpUrl correctly', function() {
+  it('should _fotmatGitHttpUrl correctly', () => {
     const lcl = new LCL();
     assert(lcl._formatGitHttpUrl() === '');
     assert(lcl._formatGitHttpUrl('https://github.com/node-modules/last-commit-log.git') === 'https://github.com/node-modules/last-commit-log');
   });
 
-  it('should throw error', function() {
+  it('should throw error', () => {
     const lcl = new LCL('package.json');
     return lcl.getLastCommit().then(() => {
       assert.fail();
