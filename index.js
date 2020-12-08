@@ -121,3 +121,5 @@ function getGitBranch(opts = {}, { shortHash }) {
   }
   return _branch;
 }
+
+module.exports.diff = require('./diff');
