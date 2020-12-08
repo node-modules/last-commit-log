@@ -9,7 +9,8 @@
     "contributor": "git-contributor"
   },
   "files": [
-    "index.js"
+    "index.js",
+    "line-diff.js"
   ],
   "repository": {
     "type": "git",
