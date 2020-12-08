@@ -80,6 +80,43 @@ commit information is an object like this:
 }
 ```
 
+Get line changed map from `git diff`:
+
+```javascript
+const data = lcl.diff({
+  currentBranch: 'gh-pages',
+});
+
+/**
+{
+  '/diff.js': [
+    [
+      1,
+      46
+    ]
+  ],
+  '/index.js': [
+    [
+      124,
+      125
+    ]
+  ],
+  '/package.json': [],
+  '/test/diff.test.js': [
+    [
+      1,
+      14
+    ]
+  ]
+}
+ */
+console.log(data);
+```
+
+```javascript
+const commit = lcl.getLastCommitSync();
+```
+
 > inspired by [git-last-commit](https://github.com/seymen/git-last-commit) and fixed the parsing issue.
 
 <!-- GITCONTRIBUTOR_START -->
