@@ -26,7 +26,7 @@ module.exports = (options = {}) => {
       && !str.startsWith('-')
       && !str.startsWith('index')
     )
-    .map(str => {
+    .forEach(str => {
       const fileNameMatched = str.match(fileNameReg);
       if (fileNameMatched) {
         currentFileName = fileNameMatched[1];
@@ -36,8 +36,8 @@ module.exports = (options = {}) => {
       if (matched) {
         const [ startLine, changedLength ] = matched[2].split(',');
         const start = Number(startLine);
-        const end = changedLength ? Number(startLine) + Number(changedLength) - 1 : Number(startLine);
-        if (start < end) {
+        const end = changedLength ? start + Number(changedLength) - 1 : start;
+        if (start <= end) {
           const modifiedCol = [ start, end ];
           diffMap[currentFileName].push(modifiedCol);
         }

@@ -80,7 +80,7 @@ commit information is an object like this:
 }
 ```
 
-Get line changed map from `git diff`:
+Get map of line changed or added from `git diff`:
 
 ```javascript
 const data = lcl.diff({
