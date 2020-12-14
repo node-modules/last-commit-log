@@ -2,7 +2,7 @@
 
 const url = require('url');
 const dotgitconfig = require('dotgitconfig');
-const { execSync } = require('child_process');
+const { execFileSync } = require('child_process');
 
 module.exports = class LCL {
   constructor(dir = process.cwd()) {
@@ -33,7 +33,8 @@ module.exports = class LCL {
         cwd: this.cwd,
         maxBuffer: 1024 * 1024 * 1024,
       };
-      const stdout = execSync(command, opts).toString();
+      var args = command.split(' ');
+      const stdout = execFileSync('git', args.slice(1), opts).toString();
       c = stdout.split(splitCharacter);
       gitBranch = getGitBranch({
         gitDirStr: this.gitDirStr,
