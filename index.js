@@ -2,7 +2,7 @@
 
 const url = require('url');
 const dotgitconfig = require('dotgitconfig');
-const { execSync } = require('child_process');
+const { execFileSync } = require('child_process');
 
 module.exports = class LCL {
   constructor(dir = process.cwd()) {
@@ -22,7 +22,7 @@ module.exports = class LCL {
       '%at', '%ar', '%an', '%ae',
     ];
     const splitCharacter = '<#__last-commit-log__#>';
-    const command = `git ${this.gitDirStr} log -1 --pretty=format:"` + prettyFormat.join(splitCharacter) + '"';
+    const command = [this.gitDirStr, 'log', '-1', '--pretty-format:"', prettyFormat.join(splitCharacter), '"'];
 
     let c;
     let gitRemote;
@@ -33,7 +33,7 @@ module.exports = class LCL {
         cwd: this.cwd,
         maxBuffer: 1024 * 1024 * 1024,
       };
-      const stdout = execSync(command, opts).toString();
+      const stdout = execFileSync('git', command, opts).toString();
       c = stdout.split(splitCharacter);
       gitBranch = getGitBranch({
         gitDirStr: this.gitDirStr,
@@ -41,7 +41,8 @@ module.exports = class LCL {
       }, {
         shortHash: c[0],
       });
-      const tag = execSync(`git ${this.gitDirStr} tag --contains HEAD`, opts).toString();
+      args = [this.gitDirStr, 'tag', '--contains', 'HEAD'];
+      const tag = execFileSync('git', args, opts).toString();
       gitTag = tag.trim();
       const config = dotgitconfig(this.cwd);
       gitRemote = config.remote && config.remote.origin && config.remote.origin.url;
@@ -96,9 +97,14 @@ module.exports = class LCL {
 function getGitBranch(opts = {}, { shortHash }) {
   let _branch = '';
 
-  const revParseBranch = execSync(`git ${opts.gitDirStr} rev-parse --abbrev-ref HEAD`, opts).toString();
-  const nameRevBranch = execSync(`git ${opts.gitDirStr} name-rev --name-only HEAD`, opts).toString();
-  const gitLogBranch = execSync(`git ${opts.gitDirStr} log -n 1 --pretty=%d HEAD`, opts).toString();
+  var args = [opts.gitDirStr, 'rev-parse', '--abbrev-ref', 'HEAD'];
+  const revParseBranch = execFileSync('git', args, opts).toString();
+
+  args = [opts.gitDirStr, 'name-rev', '--name-only', 'HEAD'];
+  const nameRevBranch = execFileSync('git', args, opts).toString();
+
+  args = [opts.gitDirStr, 'log', '-n' , '1', '--pretty=%d', 'HEAD'];
+  const gitLogBranch = execFileSync('git', args, opts).toString();
 
   const branchRP = revParseBranch.trim();
   const branchNR = nameRevBranch.trim()
