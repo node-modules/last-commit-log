@@ -1,8 +1,5 @@
 node_modules
 coverage
-.idea
-*.iml
-*.tgz
+.nyc_output
 *.sw*
 *.un~
-.nyc_output

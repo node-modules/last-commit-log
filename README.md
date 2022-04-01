@@ -8,15 +8,15 @@
 [![node version][node-image]][node-url]
 [![npm download][download-image]][download-url]
 
-[npm-image]: https://img.shields.io/npm/v/last-commit-log.svg?style=flat-square
+[npm-image]: https://img.shields.io/npm/v/last-commit-log.svg
 [npm-url]: https://npmjs.org/package/last-commit-log
-[travis-image]: https://img.shields.io/travis/node-modules/last-commit-log.svg?style=flat-square
+[travis-image]: https://img.shields.io/travis/node-modules/last-commit-log.svg
 [travis-url]: https://travis-ci.org/node-modules/last-commit-log
-[codecov-image]: https://img.shields.io/codecov/c/github/node-modules/last-commit-log.svg?style=flat-square
+[codecov-image]: https://img.shields.io/codecov/c/github/node-modules/last-commit-log.svg
 [codecov-url]: https://codecov.io/gh/node-modules/last-commit-log/branch/master
-[node-image]: https://img.shields.io/badge/node.js-%3E=_8-green.svg?style=flat-square
+[node-image]: https://img.shields.io/badge/node.js-%3E=_8-green.svg
 [node-url]: http://nodejs.org/download/
-[download-image]: https://img.shields.io/npm/dm/last-commit-log.svg?style=flat-square
+[download-image]: https://img.shields.io/npm/dm/last-commit-log.svg
 [download-url]: https://npmjs.org/package/last-commit-log
 
 > Node.js module to get the last git commit information - mostly to be used by CI/CD and building phase.
@@ -123,11 +123,11 @@ const commit = lcl.getLastCommitSync();
 
 ## Contributors
 
-|[<img src="https://avatars1.githubusercontent.com/u/2139038?v=4" width="100px;"/><br/><sub><b>zhangyuheng</b></sub>](https://github.com/zhangyuheng)<br/>|[<img src="https://avatars1.githubusercontent.com/u/1011681?v=4" width="100px;"/><br/><sub><b>xudafeng</b></sub>](https://github.com/xudafeng)<br/>|[<img src="https://avatars2.githubusercontent.com/u/1001610?v=4" width="100px;"/><br/><sub><b>stared</b></sub>](https://github.com/stared)<br/>|[<img src="https://avatars2.githubusercontent.com/u/197375?v=4" width="100px;"/><br/><sub><b>hi-yinyue</b></sub>](https://github.com/hi-yinyue)<br/>|
-| :---: | :---: | :---: | :---: |
+|[<img src="https://avatars.githubusercontent.com/u/2139038?v=4" width="100px;"/><br/><sub><b>zhangyuheng</b></sub>](https://github.com/zhangyuheng)<br/>|[<img src="https://avatars.githubusercontent.com/u/1011681?v=4" width="100px;"/><br/><sub><b>xudafeng</b></sub>](https://github.com/xudafeng)<br/>|[<img src="https://avatars.githubusercontent.com/u/1001610?v=4" width="100px;"/><br/><sub><b>stared</b></sub>](https://github.com/stared)<br/>|[<img src="https://avatars.githubusercontent.com/u/10104168?v=4" width="100px;"/><br/><sub><b>yihuineng</b></sub>](https://github.com/yihuineng)<br/>|[<img src="https://avatars.githubusercontent.com/u/197375?v=4" width="100px;"/><br/><sub><b>antife-yinyue</b></sub>](https://github.com/antife-yinyue)<br/>|
+| :---: | :---: | :---: | :---: | :---: |
 
 
-This project follows the git-contributor [spec](https://github.com/xudafeng/git-contributor), auto updated at `Sat Aug 08 2020 12:30:44 GMT+0800`.
+This project follows the git-contributor [spec](https://github.com/xudafeng/git-contributor), auto updated at `Fri Apr 01 2022 20:56:04 GMT+0800`.
 
 <!-- GITCONTRIBUTOR_END -->
 

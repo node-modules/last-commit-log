@@ -1,6 +1,6 @@
 {
   "name": "last-commit-log",
-  "version": "3.1.1",
+  "version": "3.1.2",
   "description": "Node.js module to get the last git commit information - mostly to be used by CI/CD and building phase",
   "main": "index.js",
   "scripts": {
@@ -24,7 +24,7 @@
   ],
   "license": "MIT",
   "devDependencies": {
-    "eslint": "^6.1.0",
+    "eslint": "7",
     "eslint-config-egg": "^7.1.0",
     "eslint-plugin-eggache": "^1.0.0",
     "git-contributor": "1",
