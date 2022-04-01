@@ -1,13 +1,21 @@
 'use strict';
 
 const url = require('url');
+const path = require('path');
 const dotgitconfig = require('dotgitconfig');
 const { execSync } = require('child_process');
 
 module.exports = class LCL {
   constructor(dir = process.cwd()) {
+    this.gitDirStr = '';
     const { GIT_DIR } = process.env;
-    this.gitDirStr = GIT_DIR ? `--git-dir ${GIT_DIR}/.git` : '';
+    if (GIT_DIR) {
+      if (GIT_DIR.endsWith('/.git')) {
+        this.gitDirStr = `--git-dir=${GIT_DIR}`;
+      } else {
+        this.gitDirStr = `--git-dir=${path.resolve(GIT_DIR, './.git')}`;
+      }
+    }
     this.cwd = dir;
   }
 
