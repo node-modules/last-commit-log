@@ -40,6 +40,9 @@ module.exports = class LCL {
       const opts = {
         cwd: this.cwd,
         maxBuffer: 1024 * 1024 * 1024,
+        // <https://stackoverflow.com/a/45578119
+        // <https://github.com/cabinjs/axe/issues/15>
+        stdio: 'pipe',
       };
       const stdout = execSync(command, opts).toString();
       c = stdout.split(splitCharacter);
