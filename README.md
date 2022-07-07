@@ -23,8 +23,8 @@
 
 ## Who are using
 
-- ⭐⭐⭐[niftylettuce/forward-email](//github.com/niftylettuce/forward-email)
-- ⭐⭐⭐[cabinjs/cabin](//github.com/cabinjs/cabin)
+- ⭐⭐⭐[Forward Email](//github.com/forwardemail)
+- ⭐⭐⭐[Cabin](//github.com/cabinjs/cabin)
 - ⭐⭐⭐[microsoft/BotFramework-WebChat](//github.com/microsoft/BotFramework-WebChat)
 
 [For more](//github.com/node-modules/last-commit-log/network/dependents)
