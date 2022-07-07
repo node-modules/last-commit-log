@@ -23,7 +23,7 @@
 
 ## Who are using
 
-- ⭐⭐⭐[Forward Email](//github.com/forward-email)
+- ⭐⭐⭐[Forward Email](//github.com/forwardemail)
 - ⭐⭐⭐[Cabin](//github.com/cabinjs/cabin)
 - ⭐⭐⭐[microsoft/BotFramework-WebChat](//github.com/microsoft/BotFramework-WebChat)
 
