@@ -6,7 +6,11 @@ const fileNameReg = /diff --git a(.*) b.*/;
 const lineReg = /@@ -(.*) \+(.*) @@/;
 
 module.exports = (options = {}) => {
-  const { targetBranch = 'master', currentBranch } = options;
+
+  const { targetBranch = "master", currentBranch, filetypes } = options;
+
+  const filter = filetypes ? `-- '${filetypes.join("' '")}'` : "";
+  
   const cmd = [
     'git',
     'diff',
@@ -15,6 +19,7 @@ module.exports = (options = {}) => {
     '--color=never',
     targetBranch,
     currentBranch,
+    filter,
   ].join(' ');
   const str = execSync(cmd).toString().trim();
   if (!str) return null;
