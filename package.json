@@ -4,7 +4,7 @@
   "description": "Node.js module to get the last git commit information - mostly to be used by CI/CD and building phase",
   "main": "index.js",
   "scripts": {
-    "lint": "eslint .",
+    "lint": "eslint . --fix",
     "test": "nyc --reporter=lcov --reporter=text mocha",
     "contributor": "git-contributor"
   },
@@ -33,6 +33,6 @@
     "sinon": "4"
   },
   "dependencies": {
-    "dotgitconfig": "^1.1.0"
+    "dotgitconfig": "1"
   }
 }
