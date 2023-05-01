@@ -7,10 +7,14 @@ const lineReg = /@@ -(.*) \+(.*) @@/;
 
 module.exports = (options = {}) => {
 
-  const { targetBranch = "master", currentBranch, filetypes } = options;
+  const {
+    targetBranch = 'master',
+    currentBranch,
+    filetypes,
+  } = options;
 
-  const filter = filetypes ? `-- '${filetypes.join("' '")}'` : "";
-  
+  const filter = filetypes ? `-- '${filetypes.join("' '")}'` : '';
+
   const cmd = [
     'git',
     'diff',
