@@ -113,11 +113,9 @@ const data = lcl.diff({
 console.log(data);
 ```
 
-```javascript
-const commit = lcl.getLastCommitSync();
-```
+## Related Projects
 
-> inspired by [git-last-commit](https://github.com/seymen/git-last-commit) and fixed the parsing issue.
+- [macacajs/macaca-coverage](https://github.com/macacajs/macaca-coverage) code coverage tool
 
 <!-- GITCONTRIBUTOR_START -->
 

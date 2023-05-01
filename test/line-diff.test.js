@@ -19,7 +19,7 @@ describe('./test/line-diff.test.js with filters', () => {
   it('should parse git', () => {
     res = diff({
       currentBranch: 'master',
-      filetypes: ["*.ts", "*.js"]
+      filetypes: [ '*.ts', '*.js' ],
     });
     assert.equal(typeof res, 'object');
   });
