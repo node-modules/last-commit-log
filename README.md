@@ -125,7 +125,7 @@ console.log(data);
 | :---: | :---: | :---: | :---: | :---: | :---: |
 [<img src="https://avatars.githubusercontent.com/u/197375?v=4" width="100px;"/><br/><sub><b>antife-yinyue</b></sub>](https://github.com/antife-yinyue)<br/>
 
-This project follows the git-contributor [spec](https://github.com/xudafeng/git-contributor), auto updated at `Mon May 01 2023 18:47:21 GMT+0800`.
+This project follows the git-contributor [spec](https://github.com/xudafeng/git-contributor), auto updated at `Sun May 21 2023 11:57:56 GMT+0800`.
 
 <!-- GITCONTRIBUTOR_END -->
 
