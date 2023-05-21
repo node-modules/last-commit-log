@@ -27,7 +27,7 @@
     "eslint": "7",
     "eslint-config-egg": "^7.1.0",
     "eslint-plugin-eggache": "^1.0.0",
-    "git-contributor": "1",
+    "git-contributor": "2",
     "mocha": "4",
     "nyc": "11",
     "sinon": "4"
