@@ -1,13 +1,8 @@
 {
   "name": "last-commit-log",
-  "version": "3.3.0",
+  "version": "3.4.0",
   "description": "Node.js module to get the last git commit information - mostly to be used by CI/CD and building phase",
   "main": "index.js",
-  "scripts": {
-    "lint": "eslint . --fix",
-    "test": "nyc --reporter=lcov --reporter=text mocha",
-    "contributor": "git-contributor"
-  },
   "files": [
     "index.js",
     "line-diff.js"
@@ -22,7 +17,6 @@
     "history",
     "log"
   ],
-  "license": "MIT",
   "devDependencies": {
     "eslint": "7",
     "eslint-config-egg": "^7.1.0",
@@ -33,6 +27,13 @@
     "sinon": "4"
   },
   "dependencies": {
-    "dotgitconfig": "1"
-  }
+    "dotgitconfig": "1",
+    "parse-git-config": "^3.0.0"
+  },
+  "scripts": {
+    "lint": "eslint . --fix",
+    "test": "nyc --reporter=lcov --reporter=text mocha",
+    "contributor": "git-contributor"
+  },
+  "license": "MIT"
 }

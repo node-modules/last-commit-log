@@ -102,6 +102,20 @@ module.exports = class LCL {
     }
     return remote;
   }
+
+  get config() {
+    return {
+      user: {
+        name: this.getUserNameSync(),
+      },
+    };
+  }
+
+  getUserNameSync() {
+    return execSync(`git ${this.gitDirStr} config user.name`)
+      .toString()
+      .trim();
+  }
 };
 
 function getGitBranch(opts = {}, { shortHash }) {
